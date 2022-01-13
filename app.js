@@ -18,7 +18,6 @@ const UI = {
   Selector() {
     const btnNextElm = document.querySelector("#btnNext");
     const btnPreviousElm = document.querySelector("#btnPrevious");
-    const pageElm = document.querySelector("#pagesNumber");
 
     return { btnNextElm, btnPreviousElm, pageElm };
   },
@@ -26,10 +25,11 @@ const UI = {
   async showData() {
     const intialValue = tempData.pageNo * 10 - 10;
     const valueToSlice = tempData.data.slice(intialValue, intialValue + 10);
+
     console.log(valueToSlice);
     const selectDivElm = document.querySelector(".gallery");
     let selectItem = "";
-    const data = tempData.data;
+    // const data = tempData.data;
     for (const key of valueToSlice) {
       //console.log(key);
       selectItem += `<div class="reSize"><img src="${
@@ -44,7 +44,7 @@ const UI = {
   },
 
   init() {
-    const { btnNextElm, btnPreviousElm, pageElm } = this.Selector();
+    const { btnNextElm, btnPreviousElm } = this.Selector();
 
     btnNextElm.addEventListener("click", async (e) => {
       console.log("clickNext");
